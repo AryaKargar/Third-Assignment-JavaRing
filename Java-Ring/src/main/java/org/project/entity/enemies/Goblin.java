@@ -3,9 +3,8 @@ package org.project.entity.enemies;
 import org.project.entity.Entity;
 import org.project.object.weapons.Weapon;
 
-// TODO: UPDATE IMPLEMENTATION
-public class Skeleton extends Enemy {
-    public Skeleton(int hp, int mp, Weapon weapon) {
+public class Goblin extends Enemy{
+    public Goblin(int hp, int mp, Weapon weapon) {
         super(hp, mp, weapon);
     }
 
@@ -38,5 +37,4 @@ public class Skeleton extends Enemy {
     public int getMaxMP() {
         return 0;
     }
-    // TODO: DESIGN ENEMY'S WEAPON AND ARMOR AND IMPLEMENT THE CONSTRUCTOR
 }

@@ -1,9 +1,10 @@
 package org.project.object.weapons;
 
 import org.project.entity.Entity;
+import org.project.object.Object;
 
 // TODO: UPDATE IMPLEMENTATION
-public abstract class Weapon {
+public abstract class Weapon implements Object {
     private int damage;
     private int manaCost;
 
@@ -14,6 +15,10 @@ public abstract class Weapon {
     public Weapon(int damage, int manaCost) {
         this.damage = damage;
         this.manaCost = manaCost;
+    }
+
+    public Weapon() {
+
     }
 
     @Override
