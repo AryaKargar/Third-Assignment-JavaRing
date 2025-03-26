@@ -22,4 +22,7 @@ public interface Entity {
     boolean isAlive();
 
     String getName();
+
+    public abstract void specialAbility();
+
 }
