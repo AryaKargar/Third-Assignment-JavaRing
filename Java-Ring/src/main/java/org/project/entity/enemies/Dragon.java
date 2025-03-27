@@ -1,7 +1,10 @@
 package org.project.entity.enemies;
 
 import org.project.entity.Entity;
+import org.project.entity.players.Player;
 import org.project.object.weapons.Weapon;
+
+import java.util.Random;
 
 public class Dragon extends Enemy {
     public Dragon(int hp, int mp, Weapon weapon) {
@@ -9,32 +12,26 @@ public class Dragon extends Enemy {
     }
 
     @Override
-    public void attack(Entity target) {
-
-    }
-
-    @Override
-    public void defend() {
-
-    }
-
-    @Override
     public void heal(int health) {
-
+        System.out.println("Dragon cannot heal itself!");
     }
 
     @Override
-    public void fillMana(int mana) {
-
+    public String getName(){
+        return "Dragon";
     }
 
     @Override
-    public int getMaxHP() {
-        return 0;
+    public void specialAbility() {
+        System.out.println("Dragon's special ability is fire breath. it deals damage!");
     }
 
-    @Override
-    public int getMaxMP() {
-        return 0;
+    public void fireBreath(Player target) {
+        System.out.println("The Dragon unleashes a fiery breath!");
+
+        Random random = new Random();
+        int damage = random.nextInt(30, 51); // Deals between 30 and 50 damage
+        target.takeDamage(damage);
+        System.out.println(target.getName() + " takes " + damage + " fire damage!");
     }
 }

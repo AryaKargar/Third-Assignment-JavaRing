@@ -3,40 +3,40 @@ package org.project.entity.enemies;
 import org.project.entity.Entity;
 import org.project.object.weapons.Weapon;
 
-// TODO: UPDATE IMPLEMENTATION
+import java.util.Random;
+
 public class Skeleton extends Enemy {
+    private boolean revived = false;
     public Skeleton(int hp, int mp, Weapon weapon) {
         super(hp, mp, weapon);
     }
 
     @Override
-    public void attack(Entity target) {
-
-    }
-
-    @Override
-    public void defend() {
-
-    }
-
-    @Override
     public void heal(int health) {
+        Random random = new Random();
+        int extraHeal = random.nextInt(5, 16);
+        this.currentHP = Math.min(this.currentHP + health + extraHeal, maxHP);
+        System.out.println(getClass().getSimpleName() + " healed for " + health + " HP. Current HP: " + currentHP);
 
     }
 
     @Override
-    public void fillMana(int mana) {
-
+    public String getName() {
+        return "Skeleton";
     }
 
     @Override
-    public int getMaxHP() {
-        return 0;
-    }
+    public void specialAbility() {
+        System.out.println("The Skeleton has no special ability... but it refuses to stay dead!");
 
-    @Override
-    public int getMaxMP() {
-        return 0;
+
     }
-    // TODO: DESIGN ENEMY'S WEAPON AND ARMOR AND IMPLEMENT THE CONSTRUCTOR
+    public void revive() {
+        if (!revived && this.getCurrentHP() <= 0) {
+            revived = true;
+            int reviveHp = this.getMaxHP() / 2;
+            this.heal(reviveHp);
+            System.out.println("💀 The Skeleton reassembles itself and revives with " + reviveHp + " HP!");
+        }
+    }
 }
