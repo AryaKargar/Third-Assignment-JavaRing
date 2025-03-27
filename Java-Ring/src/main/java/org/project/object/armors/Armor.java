@@ -2,7 +2,6 @@ package org.project.object.armors;
 
 import org.project.object.Object;
 
-// TODO: UPDATE IMPLEMENTATION
 public abstract class Armor implements Object {
     private int defense;
     private int maxDefense;
