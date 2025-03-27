@@ -1,9 +1,10 @@
+
 package org.project.object.armors;
 
 import org.project.entity.Entity;
 
-public class KnightArmor extends Armor {
-    public KnightArmor(int defense , int durability) {
+public class AssassinArmor extends Armor {
+    public AssassinArmor(int defense , int durability) {
         super(defense, durability);
     }
 

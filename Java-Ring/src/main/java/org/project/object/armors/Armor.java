@@ -11,18 +11,25 @@ public abstract class Armor implements Object {
     private boolean isBroke;
 
     public Armor(int defense, int durability) {
+        this.maxDefense = defense; // Set max defense value
+        this.maxDurability = durability; // Set max durability value
         this.defense = defense;
         this.durability = durability;
+        this.isBroke = false;
     }
 
-    public void checkBreak() {
+    public boolean checkBreak() {
         if (durability <= 0) {
             isBroke = true;
             defense = 0;
+            return true;
         }
+        return false;
     }
 
-    // TODO: (BONUS) UPDATE THE REPAIR METHOD
+    public void use(){
+        this.durability -= 1;
+    }
     public void repair() {
         isBroke = false;
         defense = maxDefense;

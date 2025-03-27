@@ -29,7 +29,7 @@ public abstract class Player implements Entity {
 
     @Override
     public void takeDamage(int damage) {
-        int reducedDamage = Math.max(damage - (armor != null ? armor.getDefense() : 0), 0);
+        int reducedDamage = Math.max(damage - (armor.checkBreak() ? 0 : armor.getDefense()), 0);
         currentHP = Math.max(currentHP - reducedDamage, 0);
         System.out.println(getClass().getSimpleName() + " took " + reducedDamage + " damage. Current HP: " + currentHP);
     }
