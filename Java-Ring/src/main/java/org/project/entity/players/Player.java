@@ -78,4 +78,8 @@ public abstract class Player implements Entity {
     public Armor getArmor() {
         return armor;
     }
+
+    public void addMana(int mana) {
+        this.currentMP += mana;
+    }
 }

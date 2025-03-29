@@ -23,4 +23,5 @@ public interface Entity {
 
     public abstract void specialAbility();
 
+    public void addMana(int mana);
 }

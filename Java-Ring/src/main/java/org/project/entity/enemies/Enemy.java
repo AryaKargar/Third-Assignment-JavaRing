@@ -70,4 +70,8 @@ public abstract class Enemy implements Entity {
     public Weapon getWeapon() {
         return weapon;
     }
+
+    public void addMana(int mana) {
+        this.currentMP += mana;
+    }
 }
