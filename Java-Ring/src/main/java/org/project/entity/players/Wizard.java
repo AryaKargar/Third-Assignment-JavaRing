@@ -18,8 +18,14 @@ public class Wizard extends Player {
         System.out.println(getClass().getSimpleName() + " attacks " + target.getClass().getSimpleName() +
                 " with " + weapon.getClass().getSimpleName() + " for " + damage + " damage!");
         target.takeDamage(damage);
-        currentMP = Math.min(currentMP + damage / 3, maxMP);
     }
+
+    @Override
+    public void takeDamage(int damage) {
+        super.takeDamage(damage);
+        currentMP = Math.min(currentMP + damage / 4, maxMP);
+    }
+
     @Override
     public String getName() {
         return "Wizard";

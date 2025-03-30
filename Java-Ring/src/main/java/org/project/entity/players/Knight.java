@@ -23,14 +23,14 @@ public class Knight extends Player {
     }
 
     public void powerKick(Entity target) {
-        if (turnCounter >= 3) {
+        if (turnCounter >= 4) {
             turnCounter = 0;
         } else {
             System.out.println("The Knight is waiting for the right moment to use Power Kick.");
             return;
         }
         System.out.println("The Knight delivers a powerful kick to " + target.getName() + "!");
-        int damage = 30;
+        int damage = 27;
         target.takeDamage(damage);
         System.out.println(target.getName() + " takes " + damage + " damage from the Power Kick!");
     }
