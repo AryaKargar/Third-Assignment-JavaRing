@@ -13,9 +13,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Enemy skeleton = new Skeleton(40, 0, new BoneClub());
-        Enemy goblin = new Goblin(35, 0, new Dager());
-        Enemy dragon = new Dragon(120, 50, new FireBreath());
+        Enemy skeleton = new Skeleton(100, 0, new BoneClub());
+        Enemy goblin = new Goblin(85, 0, new Dager());
+        Enemy dragon = new Dragon(120, 0, new FireBreath());
 
         ArrayList<Location> locations = new ArrayList<>();
         locations.add(new Location("Farron Keep", new ArrayList<>(List.of(goblin))));
@@ -29,39 +29,43 @@ public class Main {
         Posion posion;
         switch (choice) {
             case 1 -> {
-                player = new Knight(110, 0, new Sword(), new KnightArmor(5, 2));
+                player = new Knight(90, 0, new Sword(), new KnightArmor(5, 2));
                 flask = new Flask(15, 1);
                 posion = new Posion(0, 0);
             }
             case 2 -> {
-                player = new Assassin(60, 0, new ThrowingKnives(), new AssassinArmor(10, 3));
+                player = new Assassin(70, 0, new ThrowingKnives(), new AssassinArmor(10, 3));
                 flask = new Flask(12, 3);
-                posion = new Posion(10, 4);
+                posion = new Posion(0, 0);
             }
             case 3 -> {
                 player = new Wizard(50, 50, new Sword(), new WizardArmor(10, 4));
                 flask = new Flask(10, 4);
-                posion = new Posion(0, 0);
-
+                posion = new Posion(10, 4);
             }
             default -> {
                 System.out.println("Invalid choice! Defaulting to Knight.");
-                player = new Knight(110, 0, new Sword(), new KnightArmor(5, 2));
+                player = new Knight(90, 0, new Sword(), new KnightArmor(5, 2));
                 flask = new Flask(15, 1);
                 posion = new Posion(0, 0);
             }
         }
 
         System.out.println("You have chosen: " + player.getName());
+        System.out.println();
 
+        int roundCounter;
         while (player.getCurrentHP() > 0) {
             System.out.println("\nChoose a location:");
             for (int i = 0; i < locations.size(); i++) {
                 System.out.println((i + 1) + ". " + locations.get(i).getName());
             }
+            System.out.println(locations.size() + 1 + ". Exit!");
             int locChoice = scanner.nextInt();
 
-            if (locChoice < 1 || locChoice > locations.size()) {
+            if (locChoice == locations.size() + 1) {
+                break;
+            } else if (locChoice < 1 || locChoice > locations.size()) {
                 System.out.println("Invalid choice, returning to town.");
                 continue;
             }
@@ -73,14 +77,13 @@ public class Main {
                 System.out.println("A wild " + enemy.getName() + " appears!");
             }
 
-            int roundCounter = 0;
+            roundCounter = 0;
             while (enemy.getCurrentHP() > 0 && player.getCurrentHP() > 0) {
-                player.attack(enemy);
-                System.out.println("Choose an action: (1) Special Ability, (2) Heal, (3) Add Mana");
+                System.out.println("Choose an action: (1) Special Ability, (2) Heal, (3) Add Mana, (4) Do Nothing");
                 int action = scanner.nextInt();
                 if(action == 1 && !(roundCounter % 3 == 0)) {
                     System.out.println("Special Ability is on cooldown!");
-                    System.out.println("Choose another action: (2) Heal, (3) Add Mana");
+                    System.out.println("Choose another action: (2) Heal, (3) Add Mana, (4) Do Nothing");
                     action = scanner.nextInt();
                 }
 
@@ -91,9 +94,13 @@ public class Main {
                 } else if (action == 3) {
                     posion.use(player);
                 }
+                player.attack(enemy);
 
                 if (enemy.getCurrentHP() > 0) {
                     enemy.attack(player);
+                    if(roundCounter % 3 == 1){
+                        enemy.specialAbility(player);
+                    }
                 }
                 roundCounter++;
             }

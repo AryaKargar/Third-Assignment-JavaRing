@@ -5,8 +5,6 @@ import org.project.object.armors.Armor;
 import org.project.object.weapons.Weapon;
 
 public class Knight extends Player {
-    int turnCounter = 0;
-
     public Knight(int hp, int mp, Weapon weapon, Armor armor) {
         super(hp, mp, weapon, armor);
     }
@@ -24,19 +22,9 @@ public class Knight extends Player {
     }
 
     public void powerKick(Entity target) {
-        if (turnCounter >= 4) {
-            turnCounter = 0;
-        } else {
-            System.out.println("The Knight is waiting for the right moment to use Power Kick.");
-            return;
-        }
         System.out.println("The Knight delivers a powerful kick to " + target.getName() + "!");
-        int damage = 27;
-        target.takeDamage(damage);
-        System.out.println(target.getName() + " takes " + damage + " damage from the Power Kick!");
+        target.takeDamage(27);
+        System.out.println(target.getName() + " takes " + 27 + " damage from the Power Kick!");
     }
 
-    public void endTurn() {
-        turnCounter++;
-    }
 }

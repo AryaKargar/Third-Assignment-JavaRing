@@ -18,9 +18,10 @@ public class Goblin extends Enemy{
     @Override
     public void specialAbility(Entity target) {
         System.out.println("Goblin special ability is stealing enemy's health");
+        Steal(target);
     }
 
-    public void Steal(Player target) {
+    public void Steal(Entity target) {
 
         int stolenHp = 10;
 

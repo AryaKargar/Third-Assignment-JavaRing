@@ -11,8 +11,8 @@ public abstract class Armor implements Object {
     private boolean isBroke;
 
     public Armor(int defense, int durability) {
-        this.maxDefense = defense; // Set max defense value
-        this.maxDurability = durability; // Set max durability value
+        this.maxDefense = defense;
+        this.maxDurability = durability;
         this.defense = defense;
         this.durability = durability;
         this.isBroke = false;
