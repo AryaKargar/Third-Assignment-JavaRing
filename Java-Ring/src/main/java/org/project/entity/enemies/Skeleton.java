@@ -26,7 +26,7 @@ public class Skeleton extends Enemy {
     }
 
     @Override
-    public void specialAbility() {
+    public void specialAbility(Entity target) {
         System.out.println("The Skeleton has no special ability... but it refuses to stay dead!");
 
 

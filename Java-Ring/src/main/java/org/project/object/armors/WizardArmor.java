@@ -9,6 +9,5 @@ public class WizardArmor extends Armor {
 
     @Override
     public void use(Entity target) {
-
     }
 }

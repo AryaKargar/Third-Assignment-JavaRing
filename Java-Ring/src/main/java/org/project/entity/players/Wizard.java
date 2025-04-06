@@ -32,8 +32,9 @@ public class Wizard extends Player {
     }
 
     @Override
-    public void specialAbility() {
+    public void specialAbility(Entity target) {
         System.out.println("The Wizard raises their staff, casting a powerful spell that strikes the enemy while healing their own wounds.");
+        healDamageSpell(target);
     }
 
     public void healDamageSpell(Entity target) {
@@ -56,5 +57,11 @@ public class Wizard extends Player {
 
     public int getMana() {
         return currentMP;
+    }
+
+    @Override
+    public void addMana(int mana) {
+        System.out.println(getName() + " adds " + mana + " mana! Current MP: " + currentMP);
+        this.currentMP += mana;
     }
 }

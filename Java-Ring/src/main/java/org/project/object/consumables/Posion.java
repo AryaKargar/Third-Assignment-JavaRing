@@ -5,7 +5,7 @@ import org.project.entity.players.Wizard;
 
 public class Posion extends Consumable {
 
-    Posion(int healSize, int abilityCharge) {
+    public Posion(int healSize, int abilityCharge) {
         super(healSize, abilityCharge);
     }
 

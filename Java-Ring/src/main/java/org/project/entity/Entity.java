@@ -21,7 +21,7 @@ public interface Entity {
 
     String getName();
 
-    public abstract void specialAbility();
+    public abstract void specialAbility(Entity target);
 
     public void addMana(int mana);
 }

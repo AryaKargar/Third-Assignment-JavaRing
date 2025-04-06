@@ -3,7 +3,7 @@ package org.project.object.consumables;
 import org.project.entity.Entity;
 
 public class Flask extends Consumable {
-    Flask(int healSize, int abilityCharge) {
+    public Flask(int healSize, int abilityCharge) {
         super(healSize, abilityCharge);
     }
 

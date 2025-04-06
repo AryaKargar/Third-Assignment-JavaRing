@@ -1,5 +1,6 @@
 package org.project.entity.players;
 
+import org.project.entity.Entity;
 import org.project.object.armors.Armor;
 import org.project.object.weapons.Weapon;
 
@@ -16,12 +17,13 @@ public class Assassin extends Player {
     }
 
     @Override
-    public void specialAbility() {
+    public void specialAbility(Entity target) {
         System.out.println("The Assassin vanishes into the shadows... and strikes!");
+        inToShadows(target);
     }
 
 
-    public void inToShadows(Player target) {
+    public void inToShadows(Entity target) {
         Random random = new Random();
         boolean criticalHit = random.nextInt(100) < 30;
         int damage = criticalHit ? 25 : 13;

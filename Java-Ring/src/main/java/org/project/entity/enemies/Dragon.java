@@ -22,7 +22,7 @@ public class Dragon extends Enemy {
     }
 
     @Override
-    public void specialAbility() {
+    public void specialAbility(Entity target) {
         System.out.println("Dragon's special ability is fire breath. it deals damage!");
     }
 

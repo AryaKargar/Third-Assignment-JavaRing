@@ -18,8 +18,9 @@ public class Knight extends Player {
     }
 
     @Override
-    public void specialAbility() {
+    public void specialAbility(Entity target) {
         System.out.println("The Knight charges forward, delivering a powerful kick that knocks the enemy back with overwhelming force.");
+        powerKick(target);
     }
 
     public void powerKick(Entity target) {

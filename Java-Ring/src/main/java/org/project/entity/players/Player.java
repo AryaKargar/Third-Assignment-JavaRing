@@ -80,6 +80,6 @@ public abstract class Player implements Entity {
     }
 
     public void addMana(int mana) {
-        this.currentMP += mana;
+        System.out.println(getName() + " doesnt have mana");
     }
 }
