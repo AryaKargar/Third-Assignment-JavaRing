@@ -3,8 +3,6 @@ package org.project.entity;
 public interface Entity {
     void attack(Entity target);
 
-    void defend();
-
     void heal(int health);
 
     void fillMana(int mana);
@@ -15,7 +13,15 @@ public interface Entity {
 
     int getMaxMP();
 
-    /*
-    TODO: ADD OTHER REQUIRED AND BONUS METHODS
-    */
+    int getCurrentHP();
+
+    int getCurrentMP();
+
+    boolean isAlive();
+
+    String getName();
+
+    public abstract void specialAbility(Entity target);
+
+    public void addMana(int mana);
 }

@@ -1,8 +1,12 @@
 package org.project.object.consumables;
 
-// TODO: UPDATE IMPLEMENTATION
-public abstract class Consumable {
-    /*
-    TODO: ADD OTHER REQUIRED AND BONUS METHODS
-    */
+import org.project.object.Object;
+
+public abstract class Consumable implements Object {
+    int abilitySize;
+    int abilityCharge;
+    public Consumable(int abilitySize, int abilityCharge) {
+        this.abilitySize = abilitySize;
+        this.abilityCharge = abilityCharge;
+    }
 }
